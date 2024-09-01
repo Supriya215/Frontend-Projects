@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamcic Text Flow</title>
+    <style>
+        .container
+        {
+            margin:100px auto;
+            height: 300px;
+            width: 300px;
+            border:1px solid;
+            place-content: center;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Hi! I'm Supriya</h2>
+        <p>I am a <span id="dynamic-text"></spon></p>
+    </div>
+
+    <!-- for one word  -->
+
+    <!-- <script>
+        let word="student";
+        let index=0;
+        const dynamicText=document.getElementById('dynamic-text');
+        function dynamicWord()
+        {
+            if(index<word.length)
+            {
+                dynamicText.textContent += word[index];
+                index++;
+                setTimeout(dynamicWord,100);
+            }
+        }
+        dynamicWord();
+    </script> -->
+
+    <!-- for multiple words -->
+     <script>
+        document.addEventListener("DOMContentLoaded",function()
+        {
+            const phrases=["Student","Learner","Educator","Fresher"];
+            const dynamicText=document.getElementById('dynamic-text');
+
+            let phraseIndex=0;
+            let charIndex=0;
+            function dynamicPhrases()
+            {
+                if(charIndex<phrases[phraseIndex].length)
+                {
+                    dynamicText.textContent += phrases[phraseIndex][charIndex];
+                    charIndex++;
+                    setTimeout(dynamicPhrases,200);
+                }
+                else
+                {
+                    setTimeout(function()
+                    {
+                        dynamicText.textContent='';
+                        charIndex=0;
+                        phraseIndex=(phraseIndex+1)%phrases.length;
+                        dynamicPhrases();
+                    },1000)
+                }
+            }
+            dynamicPhrases();
+        })
+     </script>
+</body>
+</html>

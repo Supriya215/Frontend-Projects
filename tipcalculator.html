@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=], initial-scale=1.0">
+    <title>Tip Calculator</title>
+    <style>
+        body
+        {
+            font-size: 1.5rem;
+        }
+        .container
+        {
+            max-width: 500px;
+            margin: 200px auto;
+            border: 1px solid;
+            padding: 16px;
+            background-color: antiquewhite;
+            border-radius: 8px;
+        }
+        
+        h1,h2
+        {
+            text-align: center;
+        }
+        
+        input
+        {
+            padding: 8px;
+        }
+        
+        #percentage
+        {
+            margin-top: 16px;
+        }
+        
+        #calculate
+        {
+            display: inline;
+            margin-top: 16px;
+            padding: 8px;
+            background-color: royalblue;
+            color: white;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Tip Calculator</h1>
+    <div class="container">   
+        <h2>Enter the bill amount</h2>
+        <label for="bill-amount">Bill Amount:</label>
+        <input type="number" id="bill-amount">
+        <br>
+        <label for="percentage">Tip Percentage:</label>
+        <input type="number" name="percentage" id="percentage">
+        <br>
+        <button id="calculate">Calculate</button>
+        <br>
+        <label id="tip-amount"></label>
+        <br>
+        <label id="total"></label>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded",function()
+        {
+            const button=document.getElementById("calculate");
+            button.addEventListener("click",function()
+            {
+                const billAmout=document.getElementById('bill-amount').valueAsNumber;
+                const tipPercentage=document.getElementById('percentage').valueAsNumber;
+                if(billAmout && tipPercentage)
+                {
+                    const percentageAmount=(billAmout*tipPercentage)/100;
+                    console.log(percentageAmount);
+                    const tipAmount=document.getElementById('tip-amount');
+                    tipAmount.textContent="Tip Amount: Rs."+percentageAmount;
+                    const totalAmount=document.getElementById('total');
+                    totalAmount.textContent="Total Amount: Rs."+(billAmout+percentageAmount);
+                }
+                else
+                {
+                    alert("Please enter bill amount and tip percentage");
+                }
+
+            })
+        })
+    </script>
+</body>
+</html>

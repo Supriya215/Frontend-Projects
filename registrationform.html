@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration Form</title>
+    <style>
+        .container
+        {
+            background-color: rgb(241, 177, 177);
+            max-width: 500px;
+            margin:0 auto;
+            border-radius: 5px;
+            padding:16px;
+        }
+        h2
+        {
+            text-align: center;
+        }
+        .text-field
+        {
+           margin-bottom: 16px;            
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="date"],
+        select
+        {
+            width:97%;
+            padding:5px;
+            border:1px solid blue;
+            border-radius: 3px;
+        }
+        #register
+        {
+            width:100px;
+            padding:5px;
+            border-radius:4px;
+            margin-left:200px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            background-color: lightgreen;
+            color:red;
+        }
+        #register:hover
+        {
+            background-color: yellowgreen;
+            color:darkmagenta;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Student Registration Form</h2>
+        <form>
+            <div class="text-field">
+                <label for="firstName">First Name:</label><br>
+                <input type="text" name="firstName" id="FirstName" placeholder="Enter Your First Name">
+               
+            </div>
+            <div class="text-field">
+                <label for="lastName">Last Name:</label><br>
+                <input type="text" name="lastName" id="LastName" placeholder="Enter Your Last Name">
+            </div>
+    
+            <div class="text-field">
+                <label for="email">E-Mail ID:</label><br>
+                <input type="email" name="email" id="e-mail" placeholder="Enter Your E-Mail ID">
+            </div>
+
+            <div class="text-field">
+                <label for="phoneNumber">Phone Number:</label><br>
+                <input type="text" name="phoneNumber" id="PhoneNumber" placeholder="Enter Your Phone Number">
+            </div>
+
+            <div class="text-field">
+                <label for="dob">Date Of Birth:</label><br>
+                <input type="date" name="dob" id="DOB">
+            </div>
+            <div class="text-field">
+                <label for="gender">Gender:</label>
+
+                <label for="Male">Male</label>
+                <input type="radio" name="gender" id="male">
+                <label for="Female">Female</label>
+                <input type="radio" name="gender" id="female">
+                <label for="others">Others</label>
+                <input type="radio" name="gender" id="others">
+            </div>
+            <div class="text-field">
+               
+                    <label for="country">Country:</label>
+                    <select name="contry" id="countries">
+                        <option value="" selected="selected">
+                            Select Your Country
+                        </option>
+                    </select>
+            </div>
+            <div class="text-field">
+                    <label for="state">State:</label>
+                    <select name="state" id="states">
+                        <option value="" selected="selected">
+                            Select Your State
+                        </option>
+                    </select>
+            </div>
+
+             <input type="button" value="Register" id="register">
+        </form>
+    </div>
+
+    <script>
+       document.addEventListener("DOMContentLoaded",function()
+        {
+            const countries = ["India", "USA", "Mexico", "South Africa", "Brazil"];
+            const states = [];
+            states[0] = ["Andhra Pradesh", "Telangana", "Kerala", "Goa", "Tamil Nadu"];
+            states[1] = ["California", "Texas", "Florida", "New York", "Illinois"];
+            states[2] = ["Jalisco", "Nuevo León", "Mexico City", "Puebla", "Guanajuato"];
+            states[3] = ["Gauteng", "KwaZulu-Natal", "Western Cape", "Eastern Cape", "Limpopo"];
+            states[4] = ["São Paulo", "Rio de Janeiro", "Minas Gerais", "Bahia", "Paraná"];
+            const countryElement=document.getElementById('countries');
+            const stateElement=document.getElementById('states');
+
+            countryElement.length=0;
+            function selectCountry()
+            {
+            for(var i=0; i<countries.length;i++)
+                {
+                    const country = countries[i];
+                    countryElement.options[i]=new Option(country,country);
+                } 
+            }
+            selectCountry();
+            stateElement.length=0;
+            function selectState(country)
+            {
+                stateIndex=countries.indexOf(country);
+                stateList=states[stateIndex];
+                for(var i=0;i<stateList.length;i++)
+                {
+                    const state=stateList[i];
+                    stateElement.options[i]=new Option(state,state);
+                }
+            }
+            selectState(countries[0]);
+            countryElement.onchange =function()
+            {
+                stateElement.length=0;
+                selectState(countryElement.value);
+            }
+            const register=document.getElementById("register");
+            register.addEventListener("click",function(){
+
+                alert("form submit successfully!");
+            })
+        })
+        
+    </script>
+</body>
+</html>

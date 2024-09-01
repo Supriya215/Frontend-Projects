@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Box Model Layout</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            width: 80%;
+            max-width: 800px;
+        }
+
+        .column {
+            width: 48%;
+        }
+
+        .box {
+            margin-bottom: 10px;
+            padding: 20px;
+            color: white;
+            border-radius: 8px;
+            box-sizing: border-box;
+            text-align: center;
+        }
+
+        .guiding-principles {
+            background-color: #303050;
+        }
+
+        .brand-identity {
+            background-color: #2cb9a3;
+        }
+
+        .editorial-guidelines {
+            background-color: #f2b2c0;
+        }
+
+        .ui-patterns {
+            background-color: #e76b6c;
+        }
+
+        .code {
+            background-color: #d14a53;
+        }
+
+        .box h2 {
+            margin: 0;
+            font-size: 1.5em;
+        }
+
+        .box p {
+            margin: 10px 0 0;
+            font-size: 1em;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="column">
+            <div class="box guiding-principles">
+                <div>
+                    <h2>GUIDING PRINCIPLES</h2>
+                    <p>Customer personas, Brand values<br>Design principles based on the above<br>Best practices: when and how to use each pattern, template and component</p>
+                </div>
+            </div>
+            <div class="box brand-identity">
+                <div>
+                    <h2>BRAND IDENTITY</h2>
+                    <p>Colour<br>Typography<br>Imagery, illustrations, iconography<br>Layout & grid, scaling<br>Animation & sound</p>
+                </div>
+            </div>
+        </div>
+        <div class="column">
+            <div class="box editorial-guidelines">
+                <div>
+                    <h2>EDITORIAL GUIDELINES</h2>
+                    <p>Tone of voice, copy style</p>
+                </div>
+            </div>
+            <div class="box ui-patterns">
+                <div>
+                    <h2>UI PATTERNS</h2>
+                    <p>UI components, Page templates<br>Interaction patterns for key experiences</p>
+                </div>
+            </div>
+            <div class="box code">
+                <div>
+                    <h2>CODE</h2>
+                    <p>Coding standards<br>Versioning<br>Pattern implementation</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
